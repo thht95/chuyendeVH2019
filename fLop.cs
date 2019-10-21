@@ -21,6 +21,14 @@ namespace MGBK3
 
         }
 
+        public void Timkiem(string timkiem)
+        {
+            var list = context.LopHanhchinhs.Where(x => x.TenLopHC == timkiem || x.Khoahoc == timkiem).ToList();
+            dgvLop.DataSource = list;
+            if (list.Count == 0)
+                MessageBox.Show("Không có kết quả nào cả");
+        }
+
         public void reloadDgv()
         {
             dgvLop.DataSource = context.LopHanhchinhs.ToList();
@@ -87,7 +95,11 @@ namespace MGBK3
         {
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa", "Xác nhận", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
+                var lop = context.LopHanhchinhs.Where(x => x.LopHC_ID == txtId.Text).FirstOrDefault();
+                context.LopHanhchinhs.Remove(lop);
+                context.SaveChanges();
 
+                reloadDgv();
             }
         }
 
@@ -103,6 +115,20 @@ namespace MGBK3
                 txtKhoahoc.Text = dgvLop[2, row].Value.ToString();
                 txtNamhoc.Text = dgvLop[3, row].Value.ToString();
             }
-        }   
+        }
+
+        private void btnTimkiem_Click(object sender, EventArgs e)
+        {
+            string timkiem = txtTimkiem.Text;
+
+            if (timkiem.Trim() == "")
+                reloadDgv();
+            else
+            {
+                Timkiem(txtTimkiem.Text);
+            } 
+
+
+        }
     }
 }
