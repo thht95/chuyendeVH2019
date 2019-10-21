@@ -16,7 +16,9 @@ namespace MGBK3
         public fLop()
         {
             InitializeComponent();
+            dgvLop.AutoGenerateColumns = false;
             reloadDgv();
+
         }
 
         public void reloadDgv()
@@ -26,15 +28,81 @@ namespace MGBK3
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            LopHanhchinh lopHanhchinh = new LopHanhchinh();
-            lopHanhchinh.TenLopHC = "1A";
-            lopHanhchinh.Namhoc = 2019;
-            lopHanhchinh.LopHC_ID =     DateTime.Now.Ticks.ToString();
+            if (checkData())
+            {
+                LopHanhchinh lopHanhchinh = new LopHanhchinh();
+                lopHanhchinh.TenLopHC = txtTenLop.Text;
+                lopHanhchinh.Namhoc = Convert.ToInt32(txtNamhoc.Text);
+                lopHanhchinh.LopHC_ID = txtId.Text;
+                lopHanhchinh.Khoahoc = txtKhoahoc.Text;
 
-            context.LopHanhchinhs.Add(lopHanhchinh);
-            context.SaveChanges();
+                context.LopHanhchinhs.Add(lopHanhchinh);
+                context.SaveChanges();
 
-            reloadDgv();
+                reloadDgv();
+            }
         }
+
+        private bool checkData()
+        {
+            if (txtId.Text.Trim() == "")
+            {
+                MessageBox.Show("Id không đc để trống");
+                return false;
+            }
+            if (txtKhoahoc.Text.Trim() == "")
+            {
+                MessageBox.Show("khóa học không đc để trống");
+                return false;
+            }
+            if (txtNamhoc.Text.Trim() == "")
+            {
+                MessageBox.Show("Năm học không đc để trống");
+                return false;
+            }
+            if (txtTenLop.Text.Trim() == "")
+            {
+                MessageBox.Show("Tên lớp không đc để trống");
+                return false;
+            }
+            return true;
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (checkData())
+            {
+                LopHanhchinh lopHanhchinh = context.LopHanhchinhs.Where(x => x.LopHC_ID == txtId.Text).FirstOrDefault();
+                lopHanhchinh.TenLopHC = txtTenLop.Text;
+                lopHanhchinh.Namhoc = Convert.ToInt32(txtNamhoc.Text);
+                lopHanhchinh.Khoahoc = txtKhoahoc.Text;
+
+                context.SaveChanges();
+
+                reloadDgv();
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa", "Xác nhận", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+
+            }
+        }
+
+        private void dgvLop_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            int col = e.ColumnIndex;
+
+            if (e.RowIndex >= 0)
+            {
+                txtId.Text = dgvLop[0, row].Value.ToString();
+                txtTenLop.Text = dgvLop[1, row].Value.ToString();
+                txtKhoahoc.Text = dgvLop[2, row].Value.ToString();
+                txtNamhoc.Text = dgvLop[3, row].Value.ToString();
+            }
+        }   
     }
 }
