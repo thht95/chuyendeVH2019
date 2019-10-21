@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MGBKModelStoreContainer" CdmEntityContainer="MGBKEntities">
+    <EntitySetMapping Name="ChitiethoadonHPs">
+      <EntityTypeMapping TypeName="MGBKModel.ChitiethoadonHP">
+        <MappingFragment StoreEntitySet="ChitiethoadonHP">
+          <ScalarProperty Name="ChitiethoadonHP_ID" ColumnName="ChitiethoadonHP_ID" />
+          <ScalarProperty Name="HoadonHP_ID" ColumnName="HoadonHP_ID" />
+          <ScalarProperty Name="LopCLB_ID" ColumnName="LopCLB_ID" />
+          <ScalarProperty Name="Hocphi" ColumnName="Hocphi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLBs">
+      <EntityTypeMapping TypeName="MGBKModel.CLB">
+        <MappingFragment StoreEntitySet="CLB">
+          <ScalarProperty Name="CLB_ID" ColumnName="CLB_ID" />
+          <ScalarProperty Name="TenCLB" ColumnName="TenCLB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hoadonhocphis">
+      <EntityTypeMapping TypeName="MGBKModel.Hoadonhocphi">
+        <MappingFragment StoreEntitySet="Hoadonhocphi">
+          <ScalarProperty Name="HoadonHP_ID" ColumnName="HoadonHP_ID" />
+          <ScalarProperty Name="Sotien" ColumnName="Sotien" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="Thoigiandong" ColumnName="Thoigiandong" />
+          <ScalarProperty Name="Nguoidong" ColumnName="Nguoidong" />
+          <ScalarProperty Name="Hocsinh_ID" ColumnName="Hocsinh_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hocsinhs">
+      <EntityTypeMapping TypeName="MGBKModel.Hocsinh">
+        <MappingFragment StoreEntitySet="Hocsinh">
+          <ScalarProperty Name="Hocsinh_ID" ColumnName="Hocsinh_ID" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="Ngaysinh" ColumnName="Ngaysinh" />
+          <ScalarProperty Name="Gioitinh" ColumnName="Gioitinh" />
+          <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+          <ScalarProperty Name="LopHC_ID" ColumnName="LopHC_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LopCLBs">
+      <EntityTypeMapping TypeName="MGBKModel.LopCLB">
+        <MappingFragment StoreEntitySet="LopCLB">
+          <ScalarProperty Name="LopCLB_ID" ColumnName="LopCLB_ID" />
+          <ScalarProperty Name="TenLopCLB" ColumnName="TenLopCLB" />
+          <ScalarProperty Name="Hocphi" ColumnName="Hocphi" />
+          <ScalarProperty Name="CLB_ID" ColumnName="CLB_ID" />
+          <ScalarProperty Name="Lichhoc" ColumnName="Lichhoc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LopHanhchinhs">
+      <EntityTypeMapping TypeName="MGBKModel.LopHanhchinh">
+        <MappingFragment StoreEntitySet="LopHanhchinh">
+          <ScalarProperty Name="LopHC_ID" ColumnName="LopHC_ID" />
+          <ScalarProperty Name="TenLopHC" ColumnName="TenLopHC" />
+          <ScalarProperty Name="Khoahoc" ColumnName="Khoahoc" />
+          <ScalarProperty Name="Namhoc" ColumnName="Namhoc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="MGBKModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

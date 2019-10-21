@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MGBKModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ChitiethoadonHP">
+    <Key>
+      <PropertyRef Name="ChitiethoadonHP_ID" />
+    </Key>
+    <Property Name="ChitiethoadonHP_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HoadonHP_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LopCLB_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Hocphi" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Hoadonhocphi" Relationship="Self.FK_ChitiethoadonHP_Hoadonhocphi" FromRole="ChitiethoadonHP" ToRole="Hoadonhocphi" />
+    <NavigationProperty Name="LopCLB" Relationship="Self.FK_ChitiethoadonHP_LopCLB" FromRole="ChitiethoadonHP" ToRole="LopCLB" />
+  </EntityType>
+  <EntityType Name="CLB">
+    <Key>
+      <PropertyRef Name="CLB_ID" />
+    </Key>
+    <Property Name="CLB_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenCLB" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LopCLBs" Relationship="Self.FK_LopCLB_Lop" FromRole="CLB" ToRole="LopCLB" />
+  </EntityType>
+  <EntityType Name="Hoadonhocphi">
+    <Key>
+      <PropertyRef Name="HoadonHP_ID" />
+    </Key>
+    <Property Name="HoadonHP_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sotien" Type="Int32" />
+    <Property Name="Trangthai" Type="Boolean" />
+    <Property Name="Thoigiandong" Type="DateTime" Precision="3" />
+    <Property Name="Nguoidong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Hocsinh_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ChitiethoadonHPs" Relationship="Self.FK_ChitiethoadonHP_Hoadonhocphi" FromRole="Hoadonhocphi" ToRole="ChitiethoadonHP" />
+    <NavigationProperty Name="Hocsinh" Relationship="Self.FK_Hoadonhocphi_Hocsinh" FromRole="Hoadonhocphi" ToRole="Hocsinh" />
+  </EntityType>
+  <EntityType Name="Hocsinh">
+    <Key>
+      <PropertyRef Name="Hocsinh_ID" />
+    </Key>
+    <Property Name="Hocsinh_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Ngaysinh" Type="DateTime" Precision="3" />
+    <Property Name="Gioitinh" Type="Boolean" />
+    <Property Name="Diachi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LopHC_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Hoadonhocphis" Relationship="Self.FK_Hoadonhocphi_Hocsinh" FromRole="Hocsinh" ToRole="Hoadonhocphi" />
+    <NavigationProperty Name="LopHanhchinh" Relationship="Self.FK_Hocsinh_LopHanhchinh" FromRole="Hocsinh" ToRole="LopHanhchinh" />
+  </EntityType>
+  <EntityType Name="LopCLB">
+    <Key>
+      <PropertyRef Name="LopCLB_ID" />
+    </Key>
+    <Property Name="LopCLB_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenLopCLB" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Hocphi" Type="Int32" />
+    <Property Name="CLB_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Lichhoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ChitiethoadonHPs" Relationship="Self.FK_ChitiethoadonHP_LopCLB" FromRole="LopCLB" ToRole="ChitiethoadonHP" />
+    <NavigationProperty Name="CLB" Relationship="Self.FK_LopCLB_Lop" FromRole="LopCLB" ToRole="CLB" />
+  </EntityType>
+  <EntityType Name="LopHanhchinh">
+    <Key>
+      <PropertyRef Name="LopHC_ID" />
+    </Key>
+    <Property Name="LopHC_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenLopHC" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Khoahoc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Namhoc" Type="Int32" />
+    <NavigationProperty Name="Hocsinhs" Relationship="Self.FK_Hocsinh_LopHanhchinh" FromRole="LopHanhchinh" ToRole="Hocsinh" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_ChitiethoadonHP_Hoadonhocphi">
+    <End Role="Hoadonhocphi" Type="Self.Hoadonhocphi" Multiplicity="1" />
+    <End Role="ChitiethoadonHP" Type="Self.ChitiethoadonHP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hoadonhocphi">
+        <PropertyRef Name="HoadonHP_ID" />
+      </Principal>
+      <Dependent Role="ChitiethoadonHP">
+        <PropertyRef Name="HoadonHP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChitiethoadonHP_LopCLB">
+    <End Role="LopCLB" Type="Self.LopCLB" Multiplicity="1" />
+    <End Role="ChitiethoadonHP" Type="Self.ChitiethoadonHP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LopCLB">
+        <PropertyRef Name="LopCLB_ID" />
+      </Principal>
+      <Dependent Role="ChitiethoadonHP">
+        <PropertyRef Name="LopCLB_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LopCLB_Lop">
+    <End Role="CLB" Type="Self.CLB" Multiplicity="0..1" />
+    <End Role="LopCLB" Type="Self.LopCLB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLB">
+        <PropertyRef Name="CLB_ID" />
+      </Principal>
+      <Dependent Role="LopCLB">
+        <PropertyRef Name="CLB_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hoadonhocphi_Hocsinh">
+    <End Role="Hocsinh" Type="Self.Hocsinh" Multiplicity="0..1" />
+    <End Role="Hoadonhocphi" Type="Self.Hoadonhocphi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hocsinh">
+        <PropertyRef Name="Hocsinh_ID" />
+      </Principal>
+      <Dependent Role="Hoadonhocphi">
+        <PropertyRef Name="Hocsinh_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hocsinh_LopHanhchinh">
+    <End Role="LopHanhchinh" Type="Self.LopHanhchinh" Multiplicity="0..1" />
+    <End Role="Hocsinh" Type="Self.Hocsinh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LopHanhchinh">
+        <PropertyRef Name="LopHC_ID" />
+      </Principal>
+      <Dependent Role="Hocsinh">
+        <PropertyRef Name="LopHC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MGBKEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ChitiethoadonHPs" EntityType="Self.ChitiethoadonHP" />
+    <EntitySet Name="CLBs" EntityType="Self.CLB" />
+    <EntitySet Name="Hoadonhocphis" EntityType="Self.Hoadonhocphi" />
+    <EntitySet Name="Hocsinhs" EntityType="Self.Hocsinh" />
+    <EntitySet Name="LopCLBs" EntityType="Self.LopCLB" />
+    <EntitySet Name="LopHanhchinhs" EntityType="Self.LopHanhchinh" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_ChitiethoadonHP_Hoadonhocphi" Association="Self.FK_ChitiethoadonHP_Hoadonhocphi">
+      <End Role="Hoadonhocphi" EntitySet="Hoadonhocphis" />
+      <End Role="ChitiethoadonHP" EntitySet="ChitiethoadonHPs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChitiethoadonHP_LopCLB" Association="Self.FK_ChitiethoadonHP_LopCLB">
+      <End Role="LopCLB" EntitySet="LopCLBs" />
+      <End Role="ChitiethoadonHP" EntitySet="ChitiethoadonHPs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LopCLB_Lop" Association="Self.FK_LopCLB_Lop">
+      <End Role="CLB" EntitySet="CLBs" />
+      <End Role="LopCLB" EntitySet="LopCLBs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hoadonhocphi_Hocsinh" Association="Self.FK_Hoadonhocphi_Hocsinh">
+      <End Role="Hocsinh" EntitySet="Hocsinhs" />
+      <End Role="Hoadonhocphi" EntitySet="Hoadonhocphis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hocsinh_LopHanhchinh" Association="Self.FK_Hocsinh_LopHanhchinh">
+      <End Role="LopHanhchinh" EntitySet="LopHanhchinhs" />
+      <End Role="Hocsinh" EntitySet="Hocsinhs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

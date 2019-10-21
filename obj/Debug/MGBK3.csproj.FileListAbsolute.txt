@@ -1,0 +1,14 @@
+E:\Projects\C#\MGBK3\bin\Debug\MGBK3.exe.config
+E:\Projects\C#\MGBK3\bin\Debug\MGBK3.exe
+E:\Projects\C#\MGBK3\bin\Debug\MGBK3.pdb
+E:\Projects\C#\MGBK3\bin\Debug\EntityFramework.dll
+E:\Projects\C#\MGBK3\bin\Debug\EntityFramework.xml
+E:\Projects\C#\MGBK3\obj\Debug\MGBK3.csprojAssemblyReference.cache
+E:\Projects\C#\MGBK3\obj\Debug\MGBK3.fHocsinh.resources
+E:\Projects\C#\MGBK3\obj\Debug\MGBK3.Form1.resources
+E:\Projects\C#\MGBK3\obj\Debug\MGBK3.Properties.Resources.resources
+E:\Projects\C#\MGBK3\obj\Debug\MGBK3.csproj.GenerateResource.cache
+E:\Projects\C#\MGBK3\obj\Debug\MGBK3.csproj.CopyComplete
+E:\Projects\C#\MGBK3\obj\Debug\MGBK3.exe
+E:\Projects\C#\MGBK3\obj\Debug\MGBK3.pdb
+E:\Projects\C#\MGBK3\obj\Debug\MGBK3.fLop.resources
