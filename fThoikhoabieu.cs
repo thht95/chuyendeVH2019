@@ -34,7 +34,7 @@ namespace MGBK3
                 var allClass = context.LopCLBs.Where(x => x.Trangthai == true);
                 foreach(LopCLB lop in allClass)
                 {
-                    if (lop.Lichhoc == "T2")
+                    if (lop.Lichhoc == "Chiều tối thứ 2")
                     {
                         if (txt2.Text == "")
                             txt2.Text = lop.TenLopCLB;
@@ -44,7 +44,7 @@ namespace MGBK3
                             txt2_3.Text = lop.TenLopCLB;
                     }
 
-                    if (lop.Lichhoc == "T3")
+                    if (lop.Lichhoc == "Chiều tối thứ 3")
                     {
                         if (txt3.Text == "")
                             txt3.Text = lop.TenLopCLB;
@@ -53,11 +53,11 @@ namespace MGBK3
                         else if (txt3_3.Text == "")
                             txt3_3.Text = lop.TenLopCLB;
                     }
-                    if (lop.Lichhoc == "T4")
+                    if (lop.Lichhoc == "Chiều tối thứ 4")
                         txt4.Text = lop.TenLopCLB;
-                    if (lop.Lichhoc == "T5")
+                    if (lop.Lichhoc == "Chiều tối thứ 5")
                         txt5.Text = lop.TenLopCLB;
-                    if (lop.Lichhoc == "T6")
+                    if (lop.Lichhoc == "Chiều tối thứ 6")
                         txt6.Text = lop.TenLopCLB;
                 }
             }
