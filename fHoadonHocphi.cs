@@ -125,8 +125,9 @@ namespace MGBK3
         private void dgvHoadonHocphi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int row = e.RowIndex;
+            int col = e.ColumnIndex;
 
-            if (e.RowIndex >= 0)
+            if (row >= 0)
             {
                 txtID.Text = dgvHoadonHocphi[0, row].Value.ToString();
                 txtSotien.Text = dgvHoadonHocphi[1, row].Value.ToString();
@@ -138,6 +139,11 @@ namespace MGBK3
                     rbtnDadong.Checked = true;
                 else
                     rbtnChuadong.Checked = true;
+
+                if (col == 6)
+                {
+                    MessageBox.Show("Hiển thị chi tiết hóa đơn");
+                }
             }
         }
 
