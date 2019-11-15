@@ -12,6 +12,9 @@ namespace MGBK3
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
     public partial class MGBKEntities : DbContext
     {
@@ -32,5 +35,10 @@ namespace MGBK3
         public DbSet<LopCLB> LopCLBs { get; set; }
         public DbSet<LopHanhchinh> LopHanhchinhs { get; set; }
         public DbSet<sysdiagram> sysdiagrams { get; set; }
+    
+        public virtual ObjectResult<spHocsinhDetail_Result> spHocsinhDetail()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spHocsinhDetail_Result>("spHocsinhDetail");
+        }
     }
 }

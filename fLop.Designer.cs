@@ -108,6 +108,7 @@
             // 
             this.txtId.Location = new System.Drawing.Point(142, 37);
             this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(100, 20);
             this.txtId.TabIndex = 2;
             // 

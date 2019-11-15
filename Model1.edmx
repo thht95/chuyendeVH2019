@@ -4,62 +4,63 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MGBKModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MGBKModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ChitiethoadonHP">
           <Key>
             <PropertyRef Name="ChitiethoadonHP_ID" />
           </Key>
-          <Property Name="ChitiethoadonHP_ID" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="HoadonHP_ID" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="LopCLB_ID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ChitiethoadonHP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoadonHP_ID" Type="int" Nullable="false" />
+          <Property Name="LopCLB_ID" Type="int" Nullable="false" />
           <Property Name="Hocphi" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="CLB">
           <Key>
             <PropertyRef Name="CLB_ID" />
           </Key>
-          <Property Name="CLB_ID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CLB_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenCLB" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Hoadonhocphi">
           <Key>
             <PropertyRef Name="HoadonHP_ID" />
           </Key>
-          <Property Name="HoadonHP_ID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="HoadonHP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Sotien" Type="int" />
           <Property Name="Trangthai" Type="bit" />
           <Property Name="Thoigiandong" Type="datetime" />
           <Property Name="Nguoidong" Type="nvarchar" MaxLength="50" />
-          <Property Name="Hocsinh_ID" Type="varchar" MaxLength="10" />
+          <Property Name="Hocsinh_ID" Type="int" />
         </EntityType>
         <EntityType Name="Hocsinh">
           <Key>
             <PropertyRef Name="Hocsinh_ID" />
           </Key>
-          <Property Name="Hocsinh_ID" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="HoTen" Type="nvarchar" MaxLength="10" />
+          <Property Name="Hocsinh_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
           <Property Name="Ngaysinh" Type="datetime" />
           <Property Name="Gioitinh" Type="bit" />
           <Property Name="Diachi" Type="nvarchar" MaxLength="100" />
-          <Property Name="LopHC_ID" Type="varchar" MaxLength="50" />
+          <Property Name="LopHC_ID" Type="int" />
         </EntityType>
         <EntityType Name="LopCLB">
           <Key>
             <PropertyRef Name="LopCLB_ID" />
           </Key>
-          <Property Name="LopCLB_ID" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="TenLopCLB" Type="nvarchar" MaxLength="10" />
+          <Property Name="LopCLB_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLopCLB" Type="nvarchar" MaxLength="100" />
           <Property Name="Hocphi" Type="int" />
-          <Property Name="CLB_ID" Type="varchar" MaxLength="10" />
+          <Property Name="CLB_ID" Type="int" />
           <Property Name="Lichhoc" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Trangthai" Type="bit" />
         </EntityType>
         <EntityType Name="LopHanhchinh">
           <Key>
             <PropertyRef Name="LopHC_ID" />
           </Key>
-          <Property Name="LopHC_ID" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="TenLopHC" Type="nvarchar" MaxLength="10" />
-          <Property Name="Khoahoc" Type="nvarchar" MaxLength="10" />
+          <Property Name="LopHC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLopHC" Type="nvarchar" MaxLength="100" />
+          <Property Name="Khoahoc" Type="nvarchar" MaxLength="100" />
           <Property Name="Namhoc" Type="int" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -120,7 +121,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LopCLB_Lop">
+        <Association Name="FK_LopCLB_CLB">
           <End Role="CLB" Type="Self.CLB" Multiplicity="0..1" />
           <End Role="LopCLB" Type="Self.LopCLB" Multiplicity="*" />
           <ReferentialConstraint>
@@ -132,6 +133,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="spHocsinhDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="MGBKModelStoreContainer">
           <EntitySet Name="ChitiethoadonHP" EntityType="Self.ChitiethoadonHP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CLB" EntityType="Self.CLB" Schema="dbo" store:Type="Tables" />
@@ -156,13 +158,12 @@
             <End Role="LopHanhchinh" EntitySet="LopHanhchinh" />
             <End Role="Hocsinh" EntitySet="Hocsinh" />
           </AssociationSet>
-          <AssociationSet Name="FK_LopCLB_Lop" Association="Self.FK_LopCLB_Lop">
+          <AssociationSet Name="FK_LopCLB_CLB" Association="Self.FK_LopCLB_CLB">
             <End Role="CLB" EntitySet="CLB" />
             <End Role="LopCLB" EntitySet="LopCLB" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MGBKModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -170,9 +171,9 @@
           <Key>
             <PropertyRef Name="ChitiethoadonHP_ID" />
           </Key>
-          <Property Name="ChitiethoadonHP_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="HoadonHP_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="LopCLB_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ChitiethoadonHP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoadonHP_ID" Type="Int32" Nullable="false" />
+          <Property Name="LopCLB_ID" Type="Int32" Nullable="false" />
           <Property Name="Hocphi" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Hoadonhocphi" Relationship="Self.FK_ChitiethoadonHP_Hoadonhocphi" FromRole="ChitiethoadonHP" ToRole="Hoadonhocphi" />
           <NavigationProperty Name="LopCLB" Relationship="Self.FK_ChitiethoadonHP_LopCLB" FromRole="ChitiethoadonHP" ToRole="LopCLB" />
@@ -181,20 +182,20 @@
           <Key>
             <PropertyRef Name="CLB_ID" />
           </Key>
-          <Property Name="CLB_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CLB_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenCLB" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="LopCLBs" Relationship="Self.FK_LopCLB_Lop" FromRole="CLB" ToRole="LopCLB" />
+          <NavigationProperty Name="LopCLBs" Relationship="Self.FK_LopCLB_CLB" FromRole="CLB" ToRole="LopCLB" />
         </EntityType>
         <EntityType Name="Hoadonhocphi">
           <Key>
             <PropertyRef Name="HoadonHP_ID" />
           </Key>
-          <Property Name="HoadonHP_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HoadonHP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Sotien" Type="Int32" />
           <Property Name="Trangthai" Type="Boolean" />
           <Property Name="Thoigiandong" Type="DateTime" Precision="3" />
           <Property Name="Nguoidong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Hocsinh_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Hocsinh_ID" Type="Int32" />
           <NavigationProperty Name="ChitiethoadonHPs" Relationship="Self.FK_ChitiethoadonHP_Hoadonhocphi" FromRole="Hoadonhocphi" ToRole="ChitiethoadonHP" />
           <NavigationProperty Name="Hocsinh" Relationship="Self.FK_Hoadonhocphi_Hocsinh" FromRole="Hoadonhocphi" ToRole="Hocsinh" />
         </EntityType>
@@ -202,12 +203,12 @@
           <Key>
             <PropertyRef Name="Hocsinh_ID" />
           </Key>
-          <Property Name="Hocsinh_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="HoTen" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Hocsinh_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Ngaysinh" Type="DateTime" Precision="3" />
           <Property Name="Gioitinh" Type="Boolean" />
           <Property Name="Diachi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="LopHC_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LopHC_ID" Type="Int32" />
           <NavigationProperty Name="Hoadonhocphis" Relationship="Self.FK_Hoadonhocphi_Hocsinh" FromRole="Hocsinh" ToRole="Hoadonhocphi" />
           <NavigationProperty Name="LopHanhchinh" Relationship="Self.FK_Hocsinh_LopHanhchinh" FromRole="Hocsinh" ToRole="LopHanhchinh" />
         </EntityType>
@@ -215,21 +216,22 @@
           <Key>
             <PropertyRef Name="LopCLB_ID" />
           </Key>
-          <Property Name="LopCLB_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TenLopCLB" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LopCLB_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLopCLB" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Hocphi" Type="Int32" />
-          <Property Name="CLB_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CLB_ID" Type="Int32" />
           <Property Name="Lichhoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Trangthai" Type="Boolean" />
           <NavigationProperty Name="ChitiethoadonHPs" Relationship="Self.FK_ChitiethoadonHP_LopCLB" FromRole="LopCLB" ToRole="ChitiethoadonHP" />
-          <NavigationProperty Name="CLB" Relationship="Self.FK_LopCLB_Lop" FromRole="LopCLB" ToRole="CLB" />
+          <NavigationProperty Name="CLB" Relationship="Self.FK_LopCLB_CLB" FromRole="LopCLB" ToRole="CLB" />
         </EntityType>
         <EntityType Name="LopHanhchinh">
           <Key>
             <PropertyRef Name="LopHC_ID" />
           </Key>
-          <Property Name="LopHC_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TenLopHC" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Khoahoc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LopHC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLopHC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Khoahoc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Namhoc" Type="Int32" />
           <NavigationProperty Name="Hocsinhs" Relationship="Self.FK_Hocsinh_LopHanhchinh" FromRole="LopHanhchinh" ToRole="Hocsinh" />
         </EntityType>
@@ -267,7 +269,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LopCLB_Lop">
+        <Association Name="FK_LopCLB_CLB">
           <End Role="CLB" Type="Self.CLB" Multiplicity="0..1" />
           <End Role="LopCLB" Type="Self.LopCLB" Multiplicity="*" />
           <ReferentialConstraint>
@@ -319,7 +321,7 @@
             <End Role="LopCLB" EntitySet="LopCLBs" />
             <End Role="ChitiethoadonHP" EntitySet="ChitiethoadonHPs" />
           </AssociationSet>
-          <AssociationSet Name="FK_LopCLB_Lop" Association="Self.FK_LopCLB_Lop">
+          <AssociationSet Name="FK_LopCLB_CLB" Association="Self.FK_LopCLB_CLB">
             <End Role="CLB" EntitySet="CLBs" />
             <End Role="LopCLB" EntitySet="LopCLBs" />
           </AssociationSet>
@@ -331,7 +333,12 @@
             <End Role="LopHanhchinh" EntitySet="LopHanhchinhs" />
             <End Role="Hocsinh" EntitySet="Hocsinhs" />
           </AssociationSet>
+          <FunctionImport Name="spHocsinhDetail" ReturnType="Collection(MGBKModel.spHocsinhDetail_Result)" />
         </EntityContainer>
+        <ComplexType Name="spHocsinhDetail_Result">
+          <Property Type="Int32" Name="Hocsinh_id" Nullable="false" />
+          <Property Type="String" Name="HoTen" Nullable="true" MaxLength="201" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -388,6 +395,7 @@
                 <ScalarProperty Name="Hocphi" ColumnName="Hocphi" />
                 <ScalarProperty Name="CLB_ID" ColumnName="CLB_ID" />
                 <ScalarProperty Name="Lichhoc" ColumnName="Lichhoc" />
+                <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -412,6 +420,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spHocsinhDetail" FunctionName="MGBKModel.Store.spHocsinhDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MGBKModel.spHocsinhDetail_Result">
+                <ScalarProperty Name="Hocsinh_id" ColumnName="Hocsinh_id" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

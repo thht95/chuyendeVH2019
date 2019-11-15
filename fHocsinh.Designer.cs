@@ -29,13 +29,17 @@
         private void InitializeComponent()
         {
             this.dgvHocsinh = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtHoten = new System.Windows.Forms.TextBox();
-            this.txtNgaysinh = new System.Windows.Forms.TextBox();
-            this.txtGioitinh = new System.Windows.Forms.TextBox();
             this.txtDiachi = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,15 +48,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cbbLop = new System.Windows.Forms.ComboBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtTimkiem = new System.Windows.Forms.TextBox();
             this.btnTimkiem = new System.Windows.Forms.Button();
+            this.rbtnNam = new System.Windows.Forms.RadioButton();
+            this.rbtnNu = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dtpNgaysinh = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHocsinh)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvHocsinh
@@ -73,6 +76,50 @@
             this.dgvHocsinh.Size = new System.Drawing.Size(850, 173);
             this.dgvHocsinh.TabIndex = 0;
             this.dgvHocsinh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHocsinh_CellClick);
+            this.dgvHocsinh.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvHocsinh_CellFormatting);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Hocsinh_ID";
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "HoTen";
+            this.Column2.HeaderText = "Họ tên";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Ngaysinh";
+            this.Column3.HeaderText = "Ngày sinh";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 80;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Gioitinh";
+            this.Column4.HeaderText = "Giới tính";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "Diachi";
+            this.Column5.HeaderText = "Địa chỉ";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "LopHC_ID";
+            this.Column6.HeaderText = "Tên lớp";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // btnAdd
             // 
@@ -108,6 +155,7 @@
             // 
             this.txtID.Location = new System.Drawing.Point(205, 31);
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(100, 20);
             this.txtID.TabIndex = 4;
             // 
@@ -117,20 +165,6 @@
             this.txtHoten.Name = "txtHoten";
             this.txtHoten.Size = new System.Drawing.Size(100, 20);
             this.txtHoten.TabIndex = 5;
-            // 
-            // txtNgaysinh
-            // 
-            this.txtNgaysinh.Location = new System.Drawing.Point(205, 107);
-            this.txtNgaysinh.Name = "txtNgaysinh";
-            this.txtNgaysinh.Size = new System.Drawing.Size(100, 20);
-            this.txtNgaysinh.TabIndex = 6;
-            // 
-            // txtGioitinh
-            // 
-            this.txtGioitinh.Location = new System.Drawing.Point(205, 144);
-            this.txtGioitinh.Name = "txtGioitinh";
-            this.txtGioitinh.Size = new System.Drawing.Size(100, 20);
-            this.txtGioitinh.TabIndex = 7;
             // 
             // txtDiachi
             // 
@@ -201,48 +235,6 @@
             this.cbbLop.Size = new System.Drawing.Size(121, 21);
             this.cbbLop.TabIndex = 15;
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Hocsinh_ID";
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "HoTen";
-            this.Column2.HeaderText = "Họ tên";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Ngaysinh";
-            this.Column3.HeaderText = "Ngày sinh";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Gioitinh";
-            this.Column4.HeaderText = "Giới tính";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "Diachi";
-            this.Column5.HeaderText = "Địa chỉ";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "LopHC_ID";
-            this.Column6.HeaderText = "Tên lớp";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
             // txtTimkiem
             // 
             this.txtTimkiem.Location = new System.Drawing.Point(55, 290);
@@ -260,11 +252,53 @@
             this.btnTimkiem.UseVisualStyleBackColor = true;
             this.btnTimkiem.Click += new System.EventHandler(this.btnTimkiem_Click);
             // 
+            // rbtnNam
+            // 
+            this.rbtnNam.AutoSize = true;
+            this.rbtnNam.Checked = true;
+            this.rbtnNam.Location = new System.Drawing.Point(0, 12);
+            this.rbtnNam.Name = "rbtnNam";
+            this.rbtnNam.Size = new System.Drawing.Size(47, 17);
+            this.rbtnNam.TabIndex = 18;
+            this.rbtnNam.TabStop = true;
+            this.rbtnNam.Text = "Nam";
+            this.rbtnNam.UseVisualStyleBackColor = true;
+            // 
+            // rbtnNu
+            // 
+            this.rbtnNu.AutoSize = true;
+            this.rbtnNu.Location = new System.Drawing.Point(53, 12);
+            this.rbtnNu.Name = "rbtnNu";
+            this.rbtnNu.Size = new System.Drawing.Size(39, 17);
+            this.rbtnNu.TabIndex = 19;
+            this.rbtnNu.Text = "Nữ";
+            this.rbtnNu.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rbtnNam);
+            this.panel1.Controls.Add(this.rbtnNu);
+            this.panel1.Location = new System.Drawing.Point(205, 133);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(156, 39);
+            this.panel1.TabIndex = 20;
+            // 
+            // dtpNgaysinh
+            // 
+            this.dtpNgaysinh.CustomFormat = "dd/MM/yyyy";
+            this.dtpNgaysinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgaysinh.Location = new System.Drawing.Point(205, 102);
+            this.dtpNgaysinh.Name = "dtpNgaysinh";
+            this.dtpNgaysinh.Size = new System.Drawing.Size(100, 20);
+            this.dtpNgaysinh.TabIndex = 21;
+            // 
             // fHocsinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 519);
+            this.Controls.Add(this.dtpNgaysinh);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnTimkiem);
             this.Controls.Add(this.txtTimkiem);
             this.Controls.Add(this.cbbLop);
@@ -275,8 +309,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtDiachi);
-            this.Controls.Add(this.txtGioitinh);
-            this.Controls.Add(this.txtNgaysinh);
             this.Controls.Add(this.txtHoten);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.btnEdit);
@@ -286,6 +318,8 @@
             this.Name = "fHocsinh";
             this.Text = "Quản lý học sinh";
             ((System.ComponentModel.ISupportInitialize)(this.dgvHocsinh)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,8 +333,6 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TextBox txtHoten;
-        private System.Windows.Forms.TextBox txtNgaysinh;
-        private System.Windows.Forms.TextBox txtGioitinh;
         private System.Windows.Forms.TextBox txtDiachi;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -309,13 +341,17 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbbLop;
+        private System.Windows.Forms.TextBox txtTimkiem;
+        private System.Windows.Forms.Button btnTimkiem;
+        private System.Windows.Forms.RadioButton rbtnNam;
+        private System.Windows.Forms.RadioButton rbtnNu;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DateTimePicker dtpNgaysinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.TextBox txtTimkiem;
-        private System.Windows.Forms.Button btnTimkiem;
     }
 }

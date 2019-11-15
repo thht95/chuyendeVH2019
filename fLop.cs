@@ -23,7 +23,7 @@ namespace MGBK3
 
         public void Timkiem(string timkiem)
         {
-            var list = context.LopHanhchinhs.Where(x => x.TenLopHC == timkiem || x.Khoahoc == timkiem).ToList();
+            var list = context.LopHanhchinhs.Where(x => x.TenLopHC.Contains(timkiem) || x.Khoahoc.Contains(timkiem)).ToList();
             dgvLop.DataSource = list;
             if (list.Count == 0)
                 MessageBox.Show("Không có kết quả nào cả");
@@ -41,7 +41,6 @@ namespace MGBK3
                 LopHanhchinh lopHanhchinh = new LopHanhchinh();
                 lopHanhchinh.TenLopHC = txtTenLop.Text;
                 lopHanhchinh.Namhoc = Convert.ToInt32(txtNamhoc.Text);
-                lopHanhchinh.LopHC_ID = txtId.Text;
                 lopHanhchinh.Khoahoc = txtKhoahoc.Text;
 
                 context.LopHanhchinhs.Add(lopHanhchinh);
@@ -53,11 +52,6 @@ namespace MGBK3
 
         private bool checkData()
         {
-            if (txtId.Text.Trim() == "")
-            {
-                MessageBox.Show("Id không đc để trống");
-                return false;
-            }
             if (txtKhoahoc.Text.Trim() == "")
             {
                 MessageBox.Show("khóa học không đc để trống");
@@ -80,7 +74,9 @@ namespace MGBK3
         {
             if (checkData())
             {
-                LopHanhchinh lopHanhchinh = context.LopHanhchinhs.Where(x => x.LopHC_ID == txtId.Text).FirstOrDefault();
+                var id = Convert.ToInt32(txtId.Text);
+
+                LopHanhchinh lopHanhchinh = context.LopHanhchinhs.Where(x => x.LopHC_ID == id).FirstOrDefault();
                 lopHanhchinh.TenLopHC = txtTenLop.Text;
                 lopHanhchinh.Namhoc = Convert.ToInt32(txtNamhoc.Text);
                 lopHanhchinh.Khoahoc = txtKhoahoc.Text;
@@ -95,8 +91,10 @@ namespace MGBK3
         {
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa", "Xác nhận", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                var lop = context.LopHanhchinhs.Where(x => x.LopHC_ID == txtId.Text).FirstOrDefault();
-                context.LopHanhchinhs.Remove(lop);
+                var id = Convert.ToInt32(txtId.Text);
+
+                LopHanhchinh lopHanhchinh = context.LopHanhchinhs.Where(x => x.LopHC_ID == id).FirstOrDefault();
+                context.LopHanhchinhs.Remove(lopHanhchinh);
                 context.SaveChanges();
 
                 reloadDgv();
@@ -127,8 +125,6 @@ namespace MGBK3
             {
                 Timkiem(txtTimkiem.Text);
             } 
-
-
         }
     }
 }

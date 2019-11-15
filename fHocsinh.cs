@@ -26,17 +26,24 @@ namespace MGBK3
         {
             context.SaveChanges();
             dgvHocsinh.DataSource = context.Hocsinhs.ToList();
+            reloadCbb();
+        }
+
+        public void reloadCbb()
+        {
+            cbbLop.DataSource = context.LopHanhchinhs.ToList();
+            cbbLop.DisplayMember = "TenLopHC";
+            cbbLop.ValueMember = "LopHC_ID";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Hocsinh hocsinh = new Hocsinh();
             hocsinh.Diachi = txtDiachi.Text;
-            hocsinh.Hocsinh_ID = txtID.Text;
+            hocsinh.Gioitinh = rbtnNam.Checked;
             hocsinh.HoTen = txtHoten.Text;
-            hocsinh.Ngaysinh = DateTime.Now;
-            hocsinh.LopHC_ID = "1";
-            //hocsinh.LopHC_ID = cbbLop.SelectedValue.ToString();
+            hocsinh.Ngaysinh = dtpNgaysinh.Value;
+            hocsinh.LopHC_ID = (int) cbbLop.SelectedValue;
 
             context.Hocsinhs.Add(hocsinh);
 
@@ -47,12 +54,15 @@ namespace MGBK3
         {
             if (checkData())
             {
-                var hocsinh = context.Hocsinhs.Where(x => x.Hocsinh_ID == txtID.Text).FirstOrDefault();
+                var id = Convert.ToInt32(txtID.Text);
+
+                var hocsinh = context.Hocsinhs.Where(x => x.Hocsinh_ID == id).FirstOrDefault();
                 hocsinh.Diachi = txtDiachi.Text;
                 hocsinh.HoTen = txtHoten.Text;
-                hocsinh.Ngaysinh = DateTime.Now;
-                hocsinh.LopHC_ID = "1";
-                
+                hocsinh.Ngaysinh = dtpNgaysinh.Value;
+                hocsinh.Gioitinh = rbtnNam.Checked;
+                hocsinh.LopHC_ID = (int) cbbLop.SelectedValue;
+
                 reloadDgv();
             }
         }
@@ -61,7 +71,8 @@ namespace MGBK3
         {
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa", "Xác nhận", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                var hocsinh = context.Hocsinhs.Where(x => x.Hocsinh_ID == txtID.Text).FirstOrDefault();
+                var id = Convert.ToInt32(txtID.Text);
+                var hocsinh = context.Hocsinhs.Where(x => x.Hocsinh_ID == id).FirstOrDefault();
                 context.Hocsinhs.Remove(hocsinh);
 
                 reloadDgv();
@@ -70,11 +81,6 @@ namespace MGBK3
 
         private bool checkData()
         {
-            if (txtID.Text.Trim() == "")
-            {
-                MessageBox.Show("Id không đc để trống");
-                return false;
-            }
             if (txtHoten.Text.Trim() == "")
             {
                 MessageBox.Show("Họ tên không đc để trống");
@@ -83,11 +89,6 @@ namespace MGBK3
             if (txtDiachi.Text.Trim() == "")
             {
                 MessageBox.Show("Địa chỉ không đc để trống");
-                return false;
-            }
-            if (txtGioitinh.Text.Trim() == "")
-            {
-                MessageBox.Show("Giới tính không đc để trống");
                 return false;
             }
             return true;
@@ -115,16 +116,49 @@ namespace MGBK3
         private void dgvHocsinh_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int row = e.RowIndex;
-            int col = e.ColumnIndex;
 
             if (e.RowIndex >= 0)
             {
                 txtID.Text = dgvHocsinh[0, row].Value.ToString();
                 txtHoten.Text = dgvHocsinh[1, row].Value.ToString();
-                txtNgaysinh.Text = dgvHocsinh[2, row].Value.ToString();
-                //txtGioitinh.Text = dgvHocsinh[3, row].Value.ToString();
+                dtpNgaysinh.Value = Convert.ToDateTime(dgvHocsinh[2, row].Value);
                 txtDiachi.Text = dgvHocsinh[4, row].Value.ToString();
+                if (Convert.ToBoolean(dgvHocsinh[3, row].Value))
+                    rbtnNam.Checked = true;
+                else
+                    rbtnNu.Checked = true;
+
+                cbbLop.SelectedValue = dgvHocsinh[5, row].Value;
             }
+        }
+
+        private void dgvHocsinh_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            var col = e.ColumnIndex;
+
+            if (col == 3)
+            {
+                if (Convert.ToBoolean(e.Value))
+                    e.Value = "Nam";
+                else
+                    e.Value = "Nữ";
+            }
+
+            if (col == 5)
+            {
+                e.Value = getTenLop((int) e.Value);
+            }
+
+            if (col == 2) 
+            {
+                e.Value = Convert.ToDateTime(e.Value).ToString("dd/MM/yyyy");
+            }
+        }
+
+        private string getTenLop(int malop)
+        {
+            var lophanhchinh = context.LopHanhchinhs.Find(malop);
+            return lophanhchinh.TenLopHC;
         }
     }
 }

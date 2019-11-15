@@ -19,11 +19,12 @@ namespace MGBK3
             this.ChitiethoadonHPs = new HashSet<ChitiethoadonHP>();
         }
     
-        public string LopCLB_ID { get; set; }
+        public int LopCLB_ID { get; set; }
         public string TenLopCLB { get; set; }
         public Nullable<int> Hocphi { get; set; }
-        public string CLB_ID { get; set; }
+        public Nullable<int> CLB_ID { get; set; }
         public string Lichhoc { get; set; }
+        public Nullable<bool> Trangthai { get; set; }
     
         public virtual ICollection<ChitiethoadonHP> ChitiethoadonHPs { get; set; }
         public virtual CLB CLB { get; set; }

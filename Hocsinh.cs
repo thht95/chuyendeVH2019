@@ -19,12 +19,12 @@ namespace MGBK3
             this.Hoadonhocphis = new HashSet<Hoadonhocphi>();
         }
     
-        public string Hocsinh_ID { get; set; }
+        public int Hocsinh_ID { get; set; }
         public string HoTen { get; set; }
         public Nullable<System.DateTime> Ngaysinh { get; set; }
         public Nullable<bool> Gioitinh { get; set; }
         public string Diachi { get; set; }
-        public string LopHC_ID { get; set; }
+        public Nullable<int> LopHC_ID { get; set; }
     
         public virtual ICollection<Hoadonhocphi> Hoadonhocphis { get; set; }
         public virtual LopHanhchinh LopHanhchinh { get; set; }

@@ -10,18 +10,10 @@
 namespace MGBK3
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class CLB
+    public partial class spHocsinhDetail_Result
     {
-        public CLB()
-        {
-            this.LopCLBs = new HashSet<LopCLB>();
-        }
-    
-        public int CLB_ID { get; set; }
-        public string TenCLB { get; set; }
-    
-        public virtual ICollection<LopCLB> LopCLBs { get; set; }
+        public int Hocsinh_id { get; set; }
+        public string HoTen { get; set; }
     }
 }

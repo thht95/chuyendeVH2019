@@ -19,7 +19,7 @@ namespace MGBK3
             this.Hocsinhs = new HashSet<Hocsinh>();
         }
     
-        public string LopHC_ID { get; set; }
+        public int LopHC_ID { get; set; }
         public string TenLopHC { get; set; }
         public string Khoahoc { get; set; }
         public Nullable<int> Namhoc { get; set; }

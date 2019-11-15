@@ -42,5 +42,47 @@ namespace MGBK3
             }
               
         }
+
+        private void thôngTinClbToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            closeAllOpenWindow();
+            fCLB fCLB = new fCLB();
+            fCLB.MdiParent = this;
+            fCLB.Show();
+        }
+
+        private void thôngTinLớpCLBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            closeAllOpenWindow();
+            fLopCLB fCLB = new fLopCLB();
+            fCLB.MdiParent = this;
+            fCLB.Show();
+        }
+
+        private void thôngTinHóaĐơnHọcPhíToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            closeAllOpenWindow();
+            fHoadonHocphi fHoadon = new fHoadonHocphi();
+            fHoadon.MdiParent = this;
+            fHoadon.Show();
+        }
+
+        private void theoHọcSinhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            closeAllOpenWindow();
+            fThoikhoabieu.byStudent = true;
+            fThoikhoabieu form = new fThoikhoabieu();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void toànBộToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            closeAllOpenWindow();
+            fThoikhoabieu.byStudent = false;
+            fThoikhoabieu form = new fThoikhoabieu();
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }

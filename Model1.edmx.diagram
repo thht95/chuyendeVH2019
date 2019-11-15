@@ -4,17 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ddd2b93d3d9040ffaeef76272692faa9" Name="Diagram1">
-        <EntityTypeShape EntityType="MGBKModel.ChitiethoadonHP" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+      <Diagram DiagramId="df749acb711944d4b44a249e44805cef" Name="Diagram1">
+        <EntityTypeShape EntityType="MGBKModel.ChitiethoadonHP" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="MGBKModel.CLB" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="MGBKModel.Hoadonhocphi" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MGBKModel.Hocsinh" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MGBKModel.Hoadonhocphi" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MGBKModel.Hocsinh" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="MGBKModel.LopCLB" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="MGBKModel.LopHanhchinh" Width="1.5" PointX="1.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MGBKModel.LopHanhchinh" Width="1.5" PointX="1.5" PointY="9.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MGBKModel.sysdiagram" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="MGBKModel.FK_ChitiethoadonHP_Hoadonhocphi" ManuallyRouted="false" />
         <AssociationConnector Association="MGBKModel.FK_ChitiethoadonHP_LopCLB" ManuallyRouted="false" />
-        <AssociationConnector Association="MGBKModel.FK_LopCLB_Lop" ManuallyRouted="false" />
+        <AssociationConnector Association="MGBKModel.FK_LopCLB_CLB" ManuallyRouted="false" />
         <AssociationConnector Association="MGBKModel.FK_Hoadonhocphi_Hocsinh" ManuallyRouted="false" />
         <AssociationConnector Association="MGBKModel.FK_Hocsinh_LopHanhchinh" ManuallyRouted="false" />
       </Diagram>

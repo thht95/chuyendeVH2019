@@ -14,9 +14,9 @@ namespace MGBK3
     
     public partial class ChitiethoadonHP
     {
-        public string ChitiethoadonHP_ID { get; set; }
-        public string HoadonHP_ID { get; set; }
-        public string LopCLB_ID { get; set; }
+        public int ChitiethoadonHP_ID { get; set; }
+        public int HoadonHP_ID { get; set; }
+        public int LopCLB_ID { get; set; }
         public int Hocphi { get; set; }
     
         public virtual Hoadonhocphi Hoadonhocphi { get; set; }
