@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvHoadonHocphi = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -54,6 +48,13 @@
             this.rbtnChuadong = new System.Windows.Forms.RadioButton();
             this.rbtnDadong = new System.Windows.Forms.RadioButton();
             this.txtTimkiem = new System.Windows.Forms.TextBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoadonHocphi)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -69,57 +70,15 @@
             this.Column2,
             this.Column3,
             this.Column4,
-            this.Column5});
+            this.Column5,
+            this.Column7});
             this.dgvHoadonHocphi.Location = new System.Drawing.Point(0, 301);
             this.dgvHoadonHocphi.Name = "dgvHoadonHocphi";
             this.dgvHoadonHocphi.ReadOnly = true;
-            this.dgvHoadonHocphi.Size = new System.Drawing.Size(799, 150);
+            this.dgvHoadonHocphi.Size = new System.Drawing.Size(880, 210);
             this.dgvHoadonHocphi.TabIndex = 0;
             this.dgvHoadonHocphi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoadonHocphi_CellClick);
             this.dgvHoadonHocphi.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvHoadonHocphi_CellFormatting);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "HoadonHP_ID";
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "Sotien";
-            this.Column6.HeaderText = "Số tiền";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Hocsinh_ID";
-            this.Column2.HeaderText = "Học sinh";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Nguoidong";
-            this.Column3.HeaderText = "Người đóng";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Thoigiandong";
-            this.Column4.HeaderText = "Thời gian đóng";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 150;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "Trangthai";
-            this.Column5.HeaderText = "Trạng thái";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
             // 
             // btnAdd
             // 
@@ -293,11 +252,62 @@
             this.txtTimkiem.Size = new System.Drawing.Size(555, 20);
             this.txtTimkiem.TabIndex = 19;
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "HoadonHP_ID";
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "Sotien";
+            this.Column6.HeaderText = "Số tiền";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Hocsinh_ID";
+            this.Column2.HeaderText = "Học sinh";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Nguoidong";
+            this.Column3.HeaderText = "Người đóng";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Thoigiandong";
+            this.Column4.HeaderText = "Thời gian đóng";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 150;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "Trangthai";
+            this.Column5.HeaderText = "Trạng thái";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Text = "Chi tiết";
+            this.Column7.UseColumnTextForButtonValue = true;
+            // 
             // fHoadonHocphi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(882, 510);
             this.Controls.Add(this.txtTimkiem);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dtpNgaydong);
@@ -334,12 +344,6 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnTimkiem;
         private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSotien;
@@ -354,5 +358,12 @@
         private System.Windows.Forms.RadioButton rbtnChuadong;
         private System.Windows.Forms.RadioButton rbtnDadong;
         private System.Windows.Forms.TextBox txtTimkiem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewButtonColumn Column7;
     }
 }
