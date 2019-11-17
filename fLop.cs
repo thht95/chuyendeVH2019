@@ -23,7 +23,7 @@ namespace MGBK3
 
         public void Timkiem(string timkiem)
         {
-            var list = context.LopHanhchinhs.Where(x => x.TenLopHC.Contains(timkiem) || x.Khoahoc.Contains(timkiem)).ToList();
+            var list = context.LopHanhchinhs.Where(x => x.TenLopHC.Contains(timkiem) || x.Khoahoc.Contains(timkiem) || x.Namhoc.Contains(timkiem)).ToList();
             dgvLop.DataSource = list;
             if (list.Count == 0)
                 MessageBox.Show("Không có kết quả nào cả");
@@ -40,7 +40,7 @@ namespace MGBK3
             {
                 LopHanhchinh lopHanhchinh = new LopHanhchinh();
                 lopHanhchinh.TenLopHC = txtTenLop.Text;
-                lopHanhchinh.Namhoc = Convert.ToInt32(txtNamhoc.Text);
+                lopHanhchinh.Namhoc = txtNamhoc.Text;
                 lopHanhchinh.Khoahoc = txtKhoahoc.Text;
 
                 context.LopHanhchinhs.Add(lopHanhchinh);
@@ -78,7 +78,8 @@ namespace MGBK3
 
                 LopHanhchinh lopHanhchinh = context.LopHanhchinhs.Where(x => x.LopHC_ID == id).FirstOrDefault();
                 lopHanhchinh.TenLopHC = txtTenLop.Text;
-                lopHanhchinh.Namhoc = Convert.ToInt32(txtNamhoc.Text);
+                lopHanhchinh.Namhoc = txtNamhoc.Text;
+                
                 lopHanhchinh.Khoahoc = txtKhoahoc.Text;
 
                 context.SaveChanges();

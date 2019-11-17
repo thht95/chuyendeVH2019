@@ -22,7 +22,7 @@ namespace MGBK3
         public int LopHC_ID { get; set; }
         public string TenLopHC { get; set; }
         public string Khoahoc { get; set; }
-        public Nullable<int> Namhoc { get; set; }
+        public string Namhoc { get; set; }
     
         public virtual ICollection<Hocsinh> Hocsinhs { get; set; }
     }

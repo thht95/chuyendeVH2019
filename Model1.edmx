@@ -61,7 +61,7 @@
           <Property Name="LopHC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenLopHC" Type="nvarchar" MaxLength="100" />
           <Property Name="Khoahoc" Type="nvarchar" MaxLength="100" />
-          <Property Name="Namhoc" Type="int" />
+          <Property Name="Namhoc" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -232,7 +232,7 @@
           <Property Name="LopHC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenLopHC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Khoahoc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Namhoc" Type="Int32" />
+          <Property Name="Namhoc" Type="String" />
           <NavigationProperty Name="Hocsinhs" Relationship="Self.FK_Hocsinh_LopHanhchinh" FromRole="LopHanhchinh" ToRole="Hocsinh" />
         </EntityType>
         <EntityType Name="sysdiagram">
