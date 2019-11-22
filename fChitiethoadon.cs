@@ -127,7 +127,7 @@ namespace MGBK3
 
             if (sotienchitiethoadon > sotientrenhoadon)
             {
-                MessageBox.Show("Hóa đơn " + fChitiethoadon.maHD.ToString() + " còn thiếu nợ");
+                MessageBox.Show("Hóa đơn " + fChitiethoadon.maHD.ToString() + " còn thiếu nợ. Số tiền: " + (sotienchitiethoadon - sotientrenhoadon));
             }
             
         }
