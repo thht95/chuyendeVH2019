@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
-using System.Drawing;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -81,6 +82,38 @@ namespace MGBK3
             closeAllOpenWindow();
             fThoikhoabieu.byStudent = false;
             fThoikhoabieu form = new fThoikhoabieu();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void họcPhíTheoThángToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void họcSinhTheoLớpCLBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            closeAllOpenWindow();
+            fHocsinhTheoLopCLB form = new fHocsinhTheoLopCLB();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                closeAllOpenWindow();
+                fChitiethoadon form = new fChitiethoadon();
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
+
+        private void họcPhíTheoHọcSinhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            closeAllOpenWindow();
+            fReportHoadonTheoHS form = new fReportHoadonTheoHS();
             form.MdiParent = this;
             form.Show();
         }

@@ -141,7 +141,16 @@ namespace MGBK3
 
                 if (col == 6)
                 {
-                    MessageBox.Show("Hiển thị chi tiết hóa đơn");
+                    fChitiethoadon.maHD = Convert.ToInt32(dgvHoadonHocphi[0, row].Value);
+                    var checkExisted = this.ParentForm.MdiChildren.Where(x => x.Name == "fChitiethoadon").FirstOrDefault();
+
+                    if (checkExisted != null)
+                        checkExisted.Close();
+                   
+                    fChitiethoadon form = new fChitiethoadon();
+                    form.MdiParent = this.ParentForm;
+                    form.Show();
+
                 }
             }
         }

@@ -34,13 +34,13 @@
             this.thôngTinLớpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinClbToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinLớpCLBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thôngTinHóaĐơnHọcPhíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xemThờiKhóaBiểuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.theoHọcSinhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toànBộToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.báoCáoThốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.họcPhíTheoThángToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.họcPhíTheoHọcSinhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thôngTinHóaĐơnHọcPhíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.họcSinhTheoLớpCLBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,30 +71,37 @@
             // thôngTinHọcSinhToolStripMenuItem
             // 
             this.thôngTinHọcSinhToolStripMenuItem.Name = "thôngTinHọcSinhToolStripMenuItem";
-            this.thôngTinHọcSinhToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.thôngTinHọcSinhToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.thôngTinHọcSinhToolStripMenuItem.Text = "Thông tin học sinh";
             this.thôngTinHọcSinhToolStripMenuItem.Click += new System.EventHandler(this.thôngTinHọcSinhToolStripMenuItem_Click);
             // 
             // thôngTinLớpToolStripMenuItem
             // 
             this.thôngTinLớpToolStripMenuItem.Name = "thôngTinLớpToolStripMenuItem";
-            this.thôngTinLớpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.thôngTinLớpToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.thôngTinLớpToolStripMenuItem.Text = "Thông tin lớp";
             this.thôngTinLớpToolStripMenuItem.Click += new System.EventHandler(this.thôngTinLớpToolStripMenuItem_Click);
             // 
             // thôngTinClbToolStripMenuItem
             // 
             this.thôngTinClbToolStripMenuItem.Name = "thôngTinClbToolStripMenuItem";
-            this.thôngTinClbToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.thôngTinClbToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.thôngTinClbToolStripMenuItem.Text = "Thông tin clb ";
             this.thôngTinClbToolStripMenuItem.Click += new System.EventHandler(this.thôngTinClbToolStripMenuItem_Click);
             // 
             // thôngTinLớpCLBToolStripMenuItem
             // 
             this.thôngTinLớpCLBToolStripMenuItem.Name = "thôngTinLớpCLBToolStripMenuItem";
-            this.thôngTinLớpCLBToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.thôngTinLớpCLBToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.thôngTinLớpCLBToolStripMenuItem.Text = "Thông tin lớp clb";
             this.thôngTinLớpCLBToolStripMenuItem.Click += new System.EventHandler(this.thôngTinLớpCLBToolStripMenuItem_Click);
+            // 
+            // thôngTinHóaĐơnHọcPhíToolStripMenuItem
+            // 
+            this.thôngTinHóaĐơnHọcPhíToolStripMenuItem.Name = "thôngTinHóaĐơnHọcPhíToolStripMenuItem";
+            this.thôngTinHóaĐơnHọcPhíToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.thôngTinHóaĐơnHọcPhíToolStripMenuItem.Text = "Thông tin hóa đơn học phí";
+            this.thôngTinHóaĐơnHọcPhíToolStripMenuItem.Click += new System.EventHandler(this.thôngTinHóaĐơnHọcPhíToolStripMenuItem_Click);
             // 
             // xemThờiKhóaBiểuToolStripMenuItem
             // 
@@ -108,44 +115,39 @@
             // theoHọcSinhToolStripMenuItem
             // 
             this.theoHọcSinhToolStripMenuItem.Name = "theoHọcSinhToolStripMenuItem";
-            this.theoHọcSinhToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.theoHọcSinhToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.theoHọcSinhToolStripMenuItem.Text = "Theo học sinh";
             this.theoHọcSinhToolStripMenuItem.Click += new System.EventHandler(this.theoHọcSinhToolStripMenuItem_Click);
             // 
             // toànBộToolStripMenuItem
             // 
             this.toànBộToolStripMenuItem.Name = "toànBộToolStripMenuItem";
-            this.toànBộToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.toànBộToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.toànBộToolStripMenuItem.Text = "Toàn bộ";
             this.toànBộToolStripMenuItem.Click += new System.EventHandler(this.toànBộToolStripMenuItem_Click);
             // 
             // báoCáoThốngKêToolStripMenuItem
             // 
             this.báoCáoThốngKêToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.họcPhíTheoThángToolStripMenuItem,
-            this.họcPhíTheoHọcSinhToolStripMenuItem});
+            this.họcPhíTheoHọcSinhToolStripMenuItem,
+            this.họcSinhTheoLớpCLBToolStripMenuItem});
             this.báoCáoThốngKêToolStripMenuItem.Name = "báoCáoThốngKêToolStripMenuItem";
             this.báoCáoThốngKêToolStripMenuItem.Size = new System.Drawing.Size(111, 20);
             this.báoCáoThốngKêToolStripMenuItem.Text = "Báo cáo thống kê";
             // 
-            // họcPhíTheoThángToolStripMenuItem
-            // 
-            this.họcPhíTheoThángToolStripMenuItem.Name = "họcPhíTheoThángToolStripMenuItem";
-            this.họcPhíTheoThángToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.họcPhíTheoThángToolStripMenuItem.Text = "Học phí theo tháng";
-            // 
             // họcPhíTheoHọcSinhToolStripMenuItem
             // 
             this.họcPhíTheoHọcSinhToolStripMenuItem.Name = "họcPhíTheoHọcSinhToolStripMenuItem";
-            this.họcPhíTheoHọcSinhToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.họcPhíTheoHọcSinhToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.họcPhíTheoHọcSinhToolStripMenuItem.Text = "Học phí theo học sinh";
+            this.họcPhíTheoHọcSinhToolStripMenuItem.Click += new System.EventHandler(this.họcPhíTheoHọcSinhToolStripMenuItem_Click);
             // 
-            // thôngTinHóaĐơnHọcPhíToolStripMenuItem
+            // họcSinhTheoLớpCLBToolStripMenuItem
             // 
-            this.thôngTinHóaĐơnHọcPhíToolStripMenuItem.Name = "thôngTinHóaĐơnHọcPhíToolStripMenuItem";
-            this.thôngTinHóaĐơnHọcPhíToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.thôngTinHóaĐơnHọcPhíToolStripMenuItem.Text = "Thông tin hóa đơn học phí";
-            this.thôngTinHóaĐơnHọcPhíToolStripMenuItem.Click += new System.EventHandler(this.thôngTinHóaĐơnHọcPhíToolStripMenuItem_Click);
+            this.họcSinhTheoLớpCLBToolStripMenuItem.Name = "họcSinhTheoLớpCLBToolStripMenuItem";
+            this.họcSinhTheoLớpCLBToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.họcSinhTheoLớpCLBToolStripMenuItem.Text = "Học sinh theo lớp CLB";
+            this.họcSinhTheoLớpCLBToolStripMenuItem.Click += new System.EventHandler(this.họcSinhTheoLớpCLBToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -158,6 +160,7 @@
             this.Name = "Form1";
             this.Text = "Menu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -177,9 +180,9 @@
         private System.Windows.Forms.ToolStripMenuItem theoHọcSinhToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toànBộToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem báoCáoThốngKêToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem họcPhíTheoThángToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem họcPhíTheoHọcSinhToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thôngTinHóaĐơnHọcPhíToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem họcSinhTheoLớpCLBToolStripMenuItem;
     }
 }
 

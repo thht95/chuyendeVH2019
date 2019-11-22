@@ -1,1 +1,4 @@
-viet gi do
+git add
+tên thu muc
+git commit -m ''
+git push origin master

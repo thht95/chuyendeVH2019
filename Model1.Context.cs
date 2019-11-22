@@ -40,5 +40,14 @@ namespace MGBK3
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spHocsinhDetail_Result>("spHocsinhDetail");
         }
+    
+        public virtual ObjectResult<spSelectHSByLopCLBID_Result> spSelectHSByLopCLBID(Nullable<int> clbId)
+        {
+            var clbIdParameter = clbId.HasValue ?
+                new ObjectParameter("clbId", clbId) :
+                new ObjectParameter("clbId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectHSByLopCLBID_Result>("spSelectHSByLopCLBID", clbIdParameter);
+        }
     }
 }
