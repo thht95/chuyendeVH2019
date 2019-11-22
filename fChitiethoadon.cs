@@ -114,5 +114,22 @@ namespace MGBK3
         {
             return true;
         }
+
+        private void fChitiethoadon_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
+
+        private void fChitiethoadon_Leave(object sender, EventArgs e)
+        {
+            var sotientrenhoadon = context.Hoadonhocphis.Find(fChitiethoadon.maHD).Sotien;
+            var sotienchitiethoadon = context.ChitiethoadonHPs.Where(x => x.HoadonHP_ID == fChitiethoadon.maHD).Sum(x => x.Hocphi);
+
+            if (sotienchitiethoadon > sotientrenhoadon)
+            {
+                MessageBox.Show("Hóa đơn " + fChitiethoadon.maHD.ToString() + " còn thiếu nợ");
+            }
+            
+        }
     }
 }

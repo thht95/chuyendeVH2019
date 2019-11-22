@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,10 +46,6 @@
             this.txtTimkiem = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,6 +67,36 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "ChitiethoadonHP_ID";
+            this.Column1.HeaderText = "Mã chi tiết hóa đơn";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "HoadonHP_ID";
+            this.Column2.HeaderText = "Mã hóa đơn học phí";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "LopCLB_ID";
+            this.Column3.HeaderText = "Tên CLB";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Hocphi";
+            this.Column4.HeaderText = "Số tiền";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 130;
             // 
             // Id
             // 
@@ -199,36 +229,6 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "THÔNG TIN CHI TIẾT HÓA ĐƠN";
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "ChitiethoadonHP_ID";
-            this.Column1.HeaderText = "Mã chi tiết hóa đơn";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "HoadonHP_ID";
-            this.Column2.HeaderText = "Mã hóa đơn học phí";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "LopCLB_ID";
-            this.Column3.HeaderText = "Tên CLB";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Hocphi";
-            this.Column4.HeaderText = "Số tiền";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 130;
-            // 
             // fChitiethoadon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -253,6 +253,8 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "fChitiethoadon";
             this.Text = "Chi tiết hóa đơn";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fChitiethoadon_FormClosing);
+            this.Leave += new System.EventHandler(this.fChitiethoadon_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
